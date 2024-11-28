@@ -3,3 +3,6 @@ _default:
 
 _ls:
     @just --summary
+
+targets:
+    bazel query ...
