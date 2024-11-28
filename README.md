@@ -1,3 +1,6 @@
+# Bazel Experiments
+
+Playing around with [Bazel](https://bazel.build/)
 
 ## 📄 License
 
