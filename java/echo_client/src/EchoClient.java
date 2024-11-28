@@ -15,7 +15,7 @@ public class EchoClient {
             System.out.println("Waiting on input from the user...");
             final String inputFromUser = commandLineInput.readLine();
             if (inputFromUser != null)  {
-                System.out.println("Received by Java: " + inputFromServer);
+                System.out.println("Received by Java: " + inputFromUser);
                 final PrintWriter outputToServer =
                     new PrintWriter(socketToServer.getOutputStream(), true);
                 outputToServer.println(inputFromUser);
