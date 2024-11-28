@@ -18,6 +18,7 @@
 .vscode/
 Carthage/
 Pods/
+bazel-*
 bin/
 build/
 cmake-build-debug/
