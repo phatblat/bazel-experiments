@@ -6,3 +6,6 @@ _ls:
 
 targets:
     bazel query ...
+
+build:
+    bazel build ...
