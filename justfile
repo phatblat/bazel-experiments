@@ -9,3 +9,6 @@ targets:
 
 build:
     bazel build ...
+
+test:
+    bazel test ...
