@@ -15,3 +15,6 @@ build:
 
 test:
     bazel test ...
+
+run:
+    bazel run //java:HelloWorld
