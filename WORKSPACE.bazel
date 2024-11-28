@@ -6,3 +6,7 @@ http_archive(
     name = "io_bazel_rules_go",
     urls = ["https://github.com/bazel-contrib/rules_go/releases/download/v0.50.1/rules_go-v0.50.1.zip"],
 )
+
+load("@io_bazel_rules_go//go:deps.bzl",
+    "go_rules_dependencies", "go_register_toolchains",
+)
