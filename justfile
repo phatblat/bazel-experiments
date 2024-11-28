@@ -17,4 +17,4 @@ test:
     bazel test ...
 
 run:
-    bazel run //java:HelloWorld
+    bazel run java/hello

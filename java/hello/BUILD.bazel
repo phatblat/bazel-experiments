@@ -1,5 +1,5 @@
 java_binary(
-    name = "HelloWorld",
+    name = "hello",
     srcs = ["src/HelloWorld.java"],
     deps = [":LibraryExample"],
     main_class = "HelloWorld",
