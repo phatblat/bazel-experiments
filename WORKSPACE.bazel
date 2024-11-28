@@ -1,10 +1,20 @@
 load("@bazel_tools//tools/build_defs/repo:http.bzl",
     "http_archive", "http_file",
 )
+load("@bazel_tools//tools/build_defs/repo:git.bzl",
+    "git_repository",
+)
 
 http_archive(
     name = "io_bazel_rules_go",
     urls = ["https://github.com/bazel-contrib/rules_go/releases/download/v0.50.1/rules_go-v0.50.1.zip"],
+)
+
+git_repository(
+    name = "io_bazel_rules_go",
+    remote = "https://github.com/bazel-contrib/rules_go",
+    # tag = "v0.50.1",
+    commit = "1e855e21ad8273e470d0b417235304cd0fbd55b0",
 )
 
 load("@io_bazel_rules_go//go:deps.bzl",
