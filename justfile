@@ -16,5 +16,7 @@ build:
 test:
     bazel test ...
 
-run:
+hello:
     bazel run java/hello
+    @echo
+    bazel run go/hello
