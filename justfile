@@ -7,6 +7,9 @@ _ls:
 targets:
     bazel query ...
 
+clean:
+    bazel clean
+
 build:
     bazel build ...
 
