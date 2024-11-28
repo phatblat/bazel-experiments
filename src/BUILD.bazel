@@ -7,3 +7,12 @@ java_library(
     name = "LibraryExample",
     srcs = ["IntMultiplier.java"],
 )
+java_test(
+    name = "LibraryExampleTest",
+    srcs = ["IntMultiplierTest.java"],
+    deps = [
+        ":LibraryExample",
+        # "//third_party:junit4", # Why does the test work without this?
+    ],
+    test_class = "IntMultiplierTest",
+)
