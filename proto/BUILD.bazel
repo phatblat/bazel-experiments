@@ -1,0 +1,8 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+proto_library(
+    name = "transmission_object",
+    srcs = ["transmission_object.proto"],
+    deps = [
+        # "@com_google_protobuf//:protobuf",
+    ],
+)
