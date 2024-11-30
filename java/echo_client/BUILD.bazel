@@ -3,3 +3,8 @@ java_binary(
     srcs = ["src/EchoClient.java"],
     main_class = "EchoClient",
 )
+
+java_library(
+    name = "transmission_object",
+    srcs = ["src/TransmissionObject.java"],
+)
