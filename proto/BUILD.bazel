@@ -5,4 +5,8 @@ proto_library(
     deps = [
         # "@com_google_protobuf//:protobuf",
     ],
+    visibility = [
+        "//go/echo_server:__pkg__",
+        "//java/echo_client:__pkg__",
+    ],
 )

@@ -13,3 +13,8 @@ java_library(
     name = "transmission_object",
     srcs = ["src/TransmissionObject.java"],
 )
+
+java_proto_library(
+    name = "transmission_object_java_proto",
+    deps = ["//proto:transmission_object"],
+)
