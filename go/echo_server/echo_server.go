@@ -36,7 +36,7 @@ func main() {
     log.Println("Value = " + fmt.Sprintf("%f", transmissionObject.Value))
     transmissionObject.Message =
         "Echoed from Go: " + transmissionObject.Message
-    transmissionObject.Value = 2 * transmissionObject.Value
+    transmissionObject.Value = transmissionObject.Value
     message, error := json.Marshal(transmissionObject)
     if error != nil {
         log.Panicln(
