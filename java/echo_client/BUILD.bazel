@@ -2,6 +2,11 @@ java_binary(
     name = "echo_client",
     srcs = ["src/EchoClient.java"],
     main_class = "EchoClient",
+    deps = [
+        ":transmission_object",
+        "//third_party:gson",
+        # "@maven//:com.google.guava_guava",
+    ],
 )
 
 java_library(

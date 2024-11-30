@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -12,13 +14,19 @@ public class EchoClient {
                 new InputStreamReader(socketToServer.getInputStream()));
             final BufferedReader commandLineInput = new BufferedReader(
                 new InputStreamReader(System.in));
+
             System.out.println("Waiting on input from the user...");
             final String inputFromUser = commandLineInput.readLine();
             if (inputFromUser != null)  {
                 System.out.println("Received by Java: " + inputFromUser);
+                TransmissionObject transmissionObject = new TransmissionObject();
+                transmissionObject.message = inputFromUser;
+                transmissionObject.value = 3.14f;
+                GsonBuilder builder = new GsonBuilder();
+                Gson gson = builder.create();
                 final PrintWriter outputToServer =
                     new PrintWriter(socketToServer.getOutputStream(), true);
-                outputToServer.println(inputFromUser);
+                outputToServer.println(gson.toJson(transmissionObject));
                 System.out.println(inputFromServer.readLine());
             }
             socketToServer.close();
