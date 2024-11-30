@@ -1,7 +1,10 @@
 package main
 import (
+    "encoding/json"
+    "fmt"
     "log"
     "net"
+    "transmission_object"
 )
 func main() {
     log.Println("Spinning up the Echo Server in Go...")
@@ -22,7 +25,22 @@ func main() {
     if error != nil {
         log.Println("Cannot read from the buffer! Error: " + error.Error())
     }
-    data := string(buffer[:size])
-    log.Println("Received data: " + data)
-    connection.Write([]byte("Echoed from Go: " + data))
+    data := buffer[:size]
+
+    var transmissionObject transmission_object.TransmissionObject
+    error = json.Unmarshal(data, &transmissionObject)
+    if error != nil {
+        log.Println("Cannot unmarshal the buffer! Error: " + error.Error())
+    }
+    log.Println("Message = " + transmissionObject.Message)
+    log.Println("Value = " + fmt.Sprintf("%f", transmissionObject.Value))
+    transmissionObject.Message =
+        "Echoed from Go: " + transmissionObject.Message
+    transmissionObject.Value = 2 * transmissionObject.Value
+    message, error := json.Marshal(transmissionObject)
+    if error != nil {
+        log.Panicln(
+            "Unable to marshall the object! Error: " + error.Error())
+    }
+    connection.Write(message)
 }

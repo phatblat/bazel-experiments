@@ -5,5 +5,12 @@ load("@io_bazel_rules_go//go:def.bzl",
 go_binary(
     name = "echo_server",
     srcs = ["echo_server.go"],
+    deps = [":transmission_object"],
     visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "transmission_object",
+    srcs = ["transmission_object.go"],
+    importpath = "transmission_object",
 )
