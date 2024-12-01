@@ -1,6 +1,4 @@
-load("@bazel_tools//tools/build_defs/repo:http.bzl",
-    "http_archive", "http_file",
-)
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
 
 http_archive(
     name = "io_bazel_rules_go",
@@ -14,6 +12,24 @@ load("@io_bazel_rules_go//go:deps.bzl", "go_rules_dependencies", "go_register_to
 
 go_rules_dependencies()
 go_register_toolchains("1.23.3")
+
+# bazel_gazelle
+
+http_archive(
+    name = "bazel_gazelle",
+    integrity = "sha256-12v3pg/YsFBEQJDfooN6Tq+YKeEWVhjuNdzspcvfWNU=",
+    urls = [
+        "https://mirror.bazel.build/github.com/bazelbuild/bazel-gazelle/releases/download/v0.37.0/bazel-gazelle-v0.37.0.tar.gz",
+        "https://github.com/bazelbuild/bazel-gazelle/releases/download/v0.37.0/bazel-gazelle-v0.37.0.tar.gz",
+    ],
+)
+
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies", "go_repository")
+
+# gazelle_dependencies()
+gazelle_dependencies(go_repository_default_config = "//:WORKSPACE.bazel")
+
+# rulse_proto
 
 http_archive(
     name = "rules_proto",
