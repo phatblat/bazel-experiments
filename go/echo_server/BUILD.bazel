@@ -1,12 +1,18 @@
-load("@io_bazel_rules_go//go:def.bzl",
-    "go_binary", "go_library",
+load(
+    "@io_bazel_rules_go//go:def.bzl",
+    "go_binary",
+    "go_library",
+)
+load(
+    "@io_bazel_rules_go//proto:def.bzl",
+    "go_proto_library",
 )
 
 go_binary(
     name = "echo_server",
     srcs = ["echo_server.go"],
-    deps = [":transmission_object"],
     visibility = ["//visibility:public"],
+    deps = [":transmission_object"],
 )
 
 go_library(
@@ -15,12 +21,8 @@ go_library(
     importpath = "transmission_object",
 )
 
-load("@io_bazel_rules_go//proto:def.bzl",
-    "go_proto_library",
-)
-
 go_proto_library(
     name = "transmission_object_go_proto",
-    proto = "//proto:transmission_object",
     importpath = "./transmission_object",
+    proto = "//proto:transmission_object",
 )

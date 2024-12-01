@@ -10,5 +10,5 @@ java_import(
 
 java_import(
     name = "gson",
-    jars = [ "gson/gson-2.11.0.jar"],
+    jars = ["gson/gson-2.11.0.jar"],
 )

@@ -1,19 +1,21 @@
 java_binary(
     name = "hello",
     srcs = ["src/HelloWorld.java"],
-    deps = [":LibraryExample"],
     main_class = "HelloWorld",
+    deps = [":LibraryExample"],
 )
+
 java_library(
     name = "LibraryExample",
     srcs = ["src/IntMultiplier.java"],
 )
+
 java_test(
     name = "LibraryExampleTest",
     srcs = ["src/IntMultiplierTest.java"],
+    test_class = "IntMultiplierTest",
     deps = [
         ":LibraryExample",
         # "//third_party:junit4", # Why does the test work without this?
     ],
-    test_class = "IntMultiplierTest",
 )
