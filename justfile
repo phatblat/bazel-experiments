@@ -10,8 +10,8 @@ targets:
 clean:
     bazel clean
 
-build:
-    bazel build ...
+build v=("--noverbose_failures"):
+    bazel build {{v}} ...
 
 test:
     bazel test ...
