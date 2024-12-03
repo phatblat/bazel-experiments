@@ -1,10 +1,14 @@
 package main
+
 import (
-    "encoding/json"
-    "fmt"
-    "log"
-    "net"
-    "transmission_object"
+	"encoding/json"
+	"fmt"
+	"log"
+	"net"
+	// "proto/transmission_object"
+	// "transmission_object"
+	transmission_object "github.com/example/project/proto/transmission_object"
+	// "google.golang.org/protobuf/proto"
 )
 func main() {
     log.Println("Spinning up the Echo Server in Go...")
@@ -27,7 +31,7 @@ func main() {
     }
     data := buffer[:size]
 
-    var transmissionObject transmission_object.TransmissionObject
+    transmissionObject := &transmission_object.TransmissionObject{}
     error = json.Unmarshal(data, &transmissionObject)
     if error != nil {
         log.Println("Cannot unmarshal the buffer! Error: " + error.Error())

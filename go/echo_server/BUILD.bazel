@@ -10,19 +10,33 @@ load(
 
 go_binary(
     name = "echo_server",
-    srcs = ["echo_server.go"],
+    embed = [":echo_server_lib"],
     visibility = ["//visibility:public"],
-    deps = [":transmission_object"],
+    deps = [
+        ":echo_server_lib",
+        # "@com_google_protobuf//:go_default_library",
+    ],
 )
 
 go_library(
-    name = "transmission_object",
-    srcs = ["transmission_object.go"],
-    importpath = "transmission_object",
+    name = "echo_server_lib",
+    srcs = ["echo_server.go"],
+    importpath = "github.com/example/project/go/echo_server",
+    visibility = ["//visibility:private"],
+    deps = [
+        ":proto",
+    ],
+)
+
+go_library(
+    name = "proto",
+    embed = [":transmission_object_go_proto"],
+    importpath = "github.com/example/project/proto/transmission_object",
+    visibility = ["//visibility:public"],
 )
 
 go_proto_library(
     name = "transmission_object_go_proto",
-    importpath = "./transmission_object",
+    importpath = "github.com/example/project/proto/transmission_object",
     proto = "//proto:transmission_object",
 )

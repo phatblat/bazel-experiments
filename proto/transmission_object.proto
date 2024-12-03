@@ -1,5 +1,11 @@
 syntax = "proto3";
+
 package transmission_object;
+
+// import "google/protobuf/descriptor.proto";
+
+option go_package = "github.com/example/project/proto/transmission_object";
+
 message TransmissionObject {
     float value = 1;
     string message = 2;
