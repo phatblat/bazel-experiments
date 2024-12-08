@@ -4,14 +4,7 @@ java_binary(
     main_class = "EchoClient",
     deps = [
         ":transmission_object_java_proto",
-        "//third_party:gson",
-        # "@maven//:com.google.guava_guava",
     ],
-)
-
-java_library(
-    name = "transmission_object",
-    srcs = ["src/TransmissionObject.java"],
 )
 
 java_proto_library(
