@@ -1,3 +1,5 @@
+set unstable := true
+
 _default:
     @just --list
 
@@ -9,6 +11,10 @@ targets:
 
 clean:
     bazel clean
+
+format:
+    just --fmt
+    buildifier -r .
 
 build v=("--noverbose_failures"):
     bazel build {{v}} ...
