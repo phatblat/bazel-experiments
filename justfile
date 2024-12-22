@@ -22,6 +22,9 @@ build target=("..."):
 test target=("..."):
     bazel test {{ target }}
 
+run target=("..."):
+    bazel run {{ target }}
+
 hello:
     bazel run java/hello
     @echo
