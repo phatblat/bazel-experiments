@@ -1,4 +1,4 @@
-load(":foo.bzl", "foo_binary")
+load(":foo.bzl", "foo_binary", "hello_world")
 
 print("BUILD file")
 
@@ -10,4 +10,17 @@ foo_binary(
 foo_binary(
     name = "bin2",
     username = "Bob",
+)
+
+hello_world(
+    name = "hello",
+    template = "file.cc.tpl",
+    username = "Alice",
+)
+
+exports_files(["file.cc.tpl"])
+
+cc_binary(
+    name = "hello_bin",
+    srcs = [":hello"],
 )
