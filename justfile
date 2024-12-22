@@ -6,21 +6,21 @@ _default:
 _ls:
     @just --summary
 
+format:
+    just --fmt
+    buildifier -r .
+
 targets:
     bazel query ...
 
 clean:
     bazel clean
 
-format:
-    just --fmt
-    buildifier -r .
+build target=("..."):
+    bazel build {{ target }}
 
-build v=("--noverbose_failures"):
-    bazel build {{ v }} ...
-
-test:
-    bazel test ...
+test target=("..."):
+    bazel test {{ target }}
 
 hello:
     bazel run java/hello
