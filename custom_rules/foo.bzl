@@ -6,6 +6,7 @@ def _foo_binary_impl(ctx):
         output = out,
         content = "Hello\n",
     )
+    return [DefaultInfo(files = depset([out]))]
 
 foo_binary = rule(
     implementation = _foo_binary_impl,
