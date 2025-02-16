@@ -1,5 +1,8 @@
+# Settings
 set unstable := true
+set windows-shell := ['C:\Program Files\PowerShell\7\pwsh.exe']
 
+# Recipes
 _default:
     @just --list
 
