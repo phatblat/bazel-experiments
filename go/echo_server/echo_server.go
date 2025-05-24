@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"net"
@@ -29,7 +30,7 @@ func main() {
     data := buffer[:size]
 
     transmissionObject := &transmission_object.TransmissionObject{}
-    error = proto.Unmarshal(data, &transmissionObject)
+    error = proto.Unmarshal(data, transmissionObject)
     if error != nil {
         log.Println("Cannot unmarshal the buffer! Error: " + error.Error())
     }
