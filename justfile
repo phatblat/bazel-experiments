@@ -16,6 +16,10 @@ format:
 targets:
     bazel query ...
 
+# Updates module dependencies in MODULE.bazel.lock lockfile
+update:
+    bazel mod deps --lockfile_mode=update
+
 clean:
     bazel clean
 
