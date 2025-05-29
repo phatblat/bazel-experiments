@@ -34,3 +34,6 @@ bazel_dep(
 
 # Package rules
 bazel_dep(name = "rules_pkg", version = "1.0.1")
+
+# Java rules
+bazel_dep(name = "rules_java", version = "8.11.0")
