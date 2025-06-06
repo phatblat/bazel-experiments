@@ -1,4 +1,5 @@
 # Settings
+
 set unstable := true
 set windows-shell := ['C:\Program Files\PowerShell\7\pwsh.exe']
 
@@ -12,6 +13,7 @@ _ls:
 format:
     just --fmt
     buildifier -r .
+    bazel mod tidy
 
 targets:
     bazel query ...

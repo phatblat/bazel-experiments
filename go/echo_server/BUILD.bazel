@@ -29,8 +29,8 @@ go_proto_library(
     name = "transmission_object_go_proto",
     importpath = "github.com/example/project/proto/transmission_object",
     proto = "//proto:transmission_object",
+    visibility = ["//visibility:public"],
     deps = [
         "@org_golang_google_protobuf//proto",
     ],
-    visibility = ["//visibility:public"],
 )
