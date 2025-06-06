@@ -1,6 +1,7 @@
 load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
 load(":foo.bzl", "foo_binary", "hello_world")
 
+# buildifier: disable=print
 print("BUILD file")
 
 foo_binary(

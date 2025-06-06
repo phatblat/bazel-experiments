@@ -1,5 +1,21 @@
-# https://bazel.build/rules/rules-tutorial
+"""Custom Bazel rule implementations for text and C++ generation.
+
+This module defines two custom Bazel rules:
+
+1. foo_binary: Creates a simple text file containing a greeting with
+   a customizable username parameter.
+
+2. hello_world: Generates a C++ source file from a template, substituting
+   the provided username into the template.
+
+Both rules demonstrate basic concepts of Bazel's rule creation system including
+actions.write for direct content creation and actions.expand_template for
+template-based file generation.
+
+Reference: https://bazel.build/rules/rules-tutorial
+"""
 def _foo_binary_impl(ctx):
+    # buildifier: disable=print
     print("analyzing", ctx.label)
     out = ctx.actions.declare_file(ctx.label.name)
     ctx.actions.write(
@@ -15,6 +31,7 @@ foo_binary = rule(
     },
 )
 
+# buildifier: disable=print
 print("bzl file evaluation")
 
 def _hello_world_impl(ctx):
